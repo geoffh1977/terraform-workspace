@@ -1,4 +1,4 @@
-# Docker Workspace Repository
+# Terraform Workspace Repository
 
 ## Description
 
