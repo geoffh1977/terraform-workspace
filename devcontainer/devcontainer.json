@@ -1,0 +1,34 @@
+{
+    "name": "Development",
+    "dockerComposeFile": "./docker-compose.yaml",
+    "service": "development",
+    "runServices": ["development"],
+    "workspaceFolder": "/project",
+    "remoteUser": "user",
+
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+
+            "extensions": [
+                "davidanson.vscode-markdownlint",
+                "editorconfig.editorconfig",
+                "exiasr.hadolint",
+                "ms-azuretools.vscode-docker",
+                "hashicorp.terraform",
+                "redhat.vscode-yaml",
+                "timonwong.shellcheck"
+            ]
+        }
+    },
+
+    "initializeCommand": "chmod 0755 ./.devcontainer/scripts/project_setup.sh && ./.devcontainer/scripts/project_setup.sh",
+    "postAttachCommand": "chmod 0755 /project/.devcontainer/scripts/post_attach.sh && /project/.devcontainer/scripts/post_attach.sh"
+}

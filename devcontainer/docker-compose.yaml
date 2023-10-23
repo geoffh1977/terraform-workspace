@@ -1,0 +1,33 @@
+---
+version: '3.8'
+
+services:
+  # Visual Studio Container Config
+  development:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        DOCKER_VERSION: ${DOCKER_VERSION}
+        DOCKER_COMPOSE_VERSION: ${DOCKER_COMPOSE_VERSION}
+        DOCKER_GROUP_ID: ${DOCKER_GROUP_ID}
+        HADOLINT_VERSION: ${HADOLINT_VERSION}
+        SHELLCHECK_VERSION: ${SHELLCHECK_VERSION}
+        USER_USER_ID: ${USER_USER_ID}
+        USER_GROUP_ID: ${USER_GROUP_ID}
+
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    working_dir: "/project"
+
+    volumes:
+      # VS Code Workspace Mount
+      - "${PROJECTS_ROOT_DIR}:/project:cached"
+
+      # System Mounts
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+
+      # Home Mounts
+      - "${PROJECTS_ROOT_DIR}/.devcontainer/.local/development_home:/home/user"
+      - "${USER_HOME_PATH}/.ssh:/home/user/.ssh"

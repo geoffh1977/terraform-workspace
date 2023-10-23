@@ -1,0 +1,7 @@
+## Files To Ignore In Git Commits - Add A Description For Each Exception
+
+# Temporary Environment Files
+.env
+
+# Local Storage Directories
+.local/

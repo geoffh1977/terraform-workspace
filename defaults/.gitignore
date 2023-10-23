@@ -1,0 +1,23 @@
+## Files To Ignore In Git Commits - Add A Description For Each Exception
+
+# Temporary Environment Files
+.env
+
+# Local Storage Directories
+.local/
+
+# VS Code Workspace Directories
+.devcontainer/
+.vscode/
+.workspace/
+
+# Terraform path - Used to store terraform vendors and called modules
+.terraform/
+
+# Terraform lock file and state files
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
+# Any *.out files as we use these for plan and deploy
+*.out
