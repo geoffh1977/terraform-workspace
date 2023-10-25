@@ -22,6 +22,8 @@ SHELLCHECK_VERSION=$(curl -s -v https://github.com/koalaman/shellcheck/releases/
 
 PROJECTS_ROOT_DIR=$(cd .. ; echo "${PWD}")
 
+CONFIG_STORAGE_DIR=$(cd ../.. ; echo "${PWD}")/config-storage
+
 # Current User Id And Group Id
 USER_GROUP_ID=$(id -g)
 USER_USER_ID=$(id -u)
